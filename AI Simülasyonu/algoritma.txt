@@ -1,0 +1,11 @@
+Bu dosya modelin çalışma anına ilişkin kodlar için hazırlanmıştır.
+1. EEG cihazından .edf dosyasını al
+2. .edf dosyasını filtrasyondan geçir
+3. filtrelenmiş dosyayı .csv yap ve kanal isimlerini düzenle
+4. Veriyi csv dosyasından al ve grafikleştir
+2. Sliding Window kullanarak verinin anlık veri alınıyormuş gibi yavaş akmasını sağla
+3. Tahmin yapılacak veriyi takip eden bir çizgi / ok
+4. AI modeli csv dosyası üzerinden tahmin yapacak ve yapılan her 20 sıranın tahmini için çoğunluk kabul edilecek label olarak
+5. Yapılan tahminler bir dosyaya loglanacak, çizginin zaman değeri olacak o zaman değeri ile uyumlu şekilde
+6. loglanan txt dosyası sürekli okuyan ikinci bir kod olacak
+7. okunan veride label=1 olduğunda mobil cihaza TCP kullanılarak bildirim göderilecek
