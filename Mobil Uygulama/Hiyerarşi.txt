@@ -1,0 +1,9 @@
+-App.js
+  -MainPage.js
+  -SmsPersons.js
+  -Calendar.js
+    -Symptom.js
+      -SaveData.js
+  -Control.js
+    -Alarm.js
+    -Notification.js
