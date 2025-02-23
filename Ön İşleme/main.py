@@ -1,12 +1,14 @@
 import os
-from config import DATA_DIRECTORY, CHANNEL_MAPPING, OUTPUT_DIRECTORY
+from config import DATA_DIRECTORY, OUTPUT_DIRECTORY, ANNOTATIONS_FILE
 from annotations import parse_annotations
-from preprocessing import process_file
+from preprocessing import preprocess_eeg
+from dataset import save_epochs_to_csv
 
-if __name__ == "__main__":
-    annotations = parse_annotations()
-    
-    for filename in os.listdir(DATA_DIRECTORY):
-        if filename.endswith(".edf"):
-            file_path = os.path.join(DATA_DIRECTORY, filename)
-            process_file(file_path, CHANNEL_MAPPING, OUTPUT_DIRECTORY, annotations)
+annotations = parse_annotations(ANNOTATIONS_FILE)
+
+for filename in os.listdir(DATA_DIRECTORY):
+    if filename.endswith(".edf"):
+        file_path = os.path.join(DATA_DIRECTORY, filename)
+
+        eeg_corrected = preprocess_eeg(file_path, annotations)
+        save_epochs_to_csv(eeg_corrected, filename, OUTPUT_DIRECTORY)
